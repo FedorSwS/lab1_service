@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloom Shop — AJAX Корзина товаров</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Bloom Shop — Интерактивная корзина (AJAX)</h1>
+    <section class="panel">
+      <h2>1. Быстрая проверка доступности (XMLHttpRequest + ZIP/SKU)</h2>
+      <label for="skuInput">Артикул букета (SKU):</label>
+      <input type="text" id="skuInput" placeholder="BLM-0001" onchange="checkSkuAvailability()">
+      <input type="text" id="skuStatus" readonly placeholder="Статус наличия">
+      <p>Количество асинхронных обновлений: <input type="text" id="jqCounter" value="0" size="4" readonly></p>
+    </section>
+
+    <section class="panel">
+      <h2>2. Каталог букетов</h2>
+      <div id="catalogList" class="grid">Каталог загружается…</div>
+    </section>
+
+    <section class="panel">
+      <h2>3. Корзина покупателя (Idempotency-Key + Optimistic Lock)</h2>
+      <div id="cartItems">Корзина пуста</div>
+      <div class="total">Итого: <strong id="cartTotal">0 ₽</strong></div>
+    </section>
+  </main>
+  <script src="js/ajaxClient.js"></script>
+</body>
+</html>
